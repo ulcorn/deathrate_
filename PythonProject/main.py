@@ -5,7 +5,6 @@ import streamlit as st
 st.header('Death Rate analysis (1990-2019)')
 
 st.write('не придумала что написать и не придумала куда написать гипотезу и подтверждение или опровержение')
-dfold = pd.read_csv('PythonProject/age-between-15-and-49.csv')
 
 
 def showbar(dataframe, reasonwhy, color):
@@ -26,7 +25,7 @@ def showpie(df, when):
     st.plotly_chart(fig)
 
 
-
+dfold = pd.read_csv('PythonProject/age-between-15-and-49.csv')
 dfold = dfold.dropna()
 dfold['Year'].astype('object')
 dfold['total_deaths'] = dfold.sum(axis=1, numeric_only=True)
