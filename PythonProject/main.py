@@ -38,7 +38,7 @@ dfold = dfold[dfold['Country'].str.contains('World Bank Lower Middle Income') ==
 dfold.head()
 
 
-dfyoung = pd.read_csv('PythonProject/age-between-15-and-49.csv')
+dfyoung = pd.read_csv('PythonProject/age-between-5-and-14.csv')
 dfyoung = dfyoung.dropna()
 dfyoung['Year'].astype('object')
 dfyoung['total_deaths'] = dfyoung.sum(axis=1, numeric_only=True)
