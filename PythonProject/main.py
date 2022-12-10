@@ -66,55 +66,41 @@ dfveryold = dfveryold[dfveryold['Country'].str.contains('World') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Lower Middle Income') == False]
 
-# Сайт
-def main_page():
-    st.markdown('All statistics')
-    tab1, tab2, tab3, tab4, tab5= st.tabs(['People under age 5', 'People of age between 5 and 14','People of age between 15 and 49', 'People of age between 50 and 69', 'General Statistics' ])
-    with tab1:
-        st.header('How many people people under age 5 died for different reasons')
-        reasonwhy = st.selectbox('Reason', sorted(list(dftodlers)[3:]),key="orel")
-        showbar(dftodlers, reasonwhy, '#0099C6')
-        when = st.selectbox('Year', sorted(list(dftodlers['Year'].unique())),key="python")
-        st.write('Stastistics of death on each year')
-        showpie(dftodlers, when)
-    with tab2:
-        st.header('How many people people people of age between 5 and 14 died for different reasons')
-        reasonwhy = st.selectbox('Reason', sorted(list(dfyoung)[3:]),key="algosi")
-        showbar(dfyoung, reasonwhy, 'plum')
-        st.write('Stastistics of death on each year')
-        when1 = st.selectbox('Year', sorted(list(dfyoung['Year'].unique())),key="matan")
-        showpie(dfyoung, when1)
-    with tab3:
-        st.header('How many people people of age between 15 and 49 died for different reasons')
-        reasonwhy = st.selectbox('Reason', sorted(list(dfold)[3:]),key="plusi]")
-        showbar(dfold, reasonwhy, '#17BECF')
-        st.write('Stastistics of death on each year')
-        when2 = st.selectbox('Year', sorted(list(dfold['Year'].unique())),key="diskru")
-        showpie(dfold, when2)
-    with tab4:
-        st.header('How many people people of age between 50 and 69 died for different reasons')
-        reasonwhy = st.selectbox('Reason', sorted(list(dfveryold)[3:]),key="vse")
-        showbar(dfveryold, reasonwhy, '#00CC96')
-        st.write('Stastistics of death on each year')
-        when3 = st.selectbox('Year', sorted(list(dfveryold['Year'].unique())),key="lynal")
-        showpie(dfveryold, when3)
-    with tab5:
-        st.write('Basic statistics of deaths of people under age 5')
-        st.write(dftodlers.describe())
-        st.write('Basic statistics of deaths of people of age between 5 and 14')
-        st.write(dfyoung.describe())
-        st.write('Basic statistics of deaths of people of age between 15 and 49')
-        st.write(dfold.describe())
-        st.write('Basic statistics of deaths of people of age between 50 and 69')
-        st.write(dfveryold.describe())
-def page2():
-    st.markdown('Page 2 ❄️')
-    st.sidebar.markdown('# Page 2 ❄️')
-page_names_to_funcs = {
-    "Main Page": main_page,
-    "Page 2": page2,
-}
-
-selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
-page_names_to_funcs[selected_page]()
-
+tab1, tab2, tab3, tab4, tab5= st.tabs(['People under age 5', 'People of age between 5 and 14','People of age between 15 and 49', 'People of age between 50 and 69', 'General Statistics' ])
+with tab1:
+    st.header('How many people people under age 5 died for different reasons')
+    reasonwhy = st.selectbox('Reason', sorted(list(dftodlers)[3:]),key="orel")
+    showbar(dftodlers, reasonwhy, '#0099C6')
+    when = st.selectbox('Year', sorted(list(dftodlers['Year'].unique())),key="python")
+    st.write('Stastistics of death on each year')
+    showpie(dftodlers, when)
+with tab2:
+    st.header('How many people people people of age between 5 and 14 died for different reasons')
+    reasonwhy = st.selectbox('Reason', sorted(list(dfyoung)[3:]),key="algosi")
+    showbar(dfyoung, reasonwhy, 'plum')
+    st.write('Stastistics of death on each year')
+    when1 = st.selectbox('Year', sorted(list(dfyoung['Year'].unique())),key="matan")
+    showpie(dfyoung, when1)
+with tab3:
+    st.header('How many people people of age between 15 and 49 died for different reasons')
+    reasonwhy = st.selectbox('Reason', sorted(list(dfold)[3:]),key="plusi]")
+    showbar(dfold, reasonwhy, '#17BECF')
+    st.write('Stastistics of death on each year')
+    when2 = st.selectbox('Year', sorted(list(dfold['Year'].unique())),key="diskru")
+    showpie(dfold, when2)
+with tab4:
+    st.header('How many people people of age between 50 and 69 died for different reasons')
+    reasonwhy = st.selectbox('Reason', sorted(list(dfveryold)[3:]),key="vse")
+    showbar(dfveryold, reasonwhy, '#00CC96')
+    st.write('Stastistics of death on each year')
+    when3 = st.selectbox('Year', sorted(list(dfveryold['Year'].unique())),key="lynal")
+    showpie(dfveryold, when3)
+with tab5:
+    st.write('Basic statistics of deaths of people under age 5')
+    st.write(dftodlers.describe())
+    st.write('Basic statistics of deaths of people of age between 5 and 14')
+    st.write(dfyoung.describe())
+    st.write('Basic statistics of deaths of people of age between 15 and 49')
+    st.write(dfold.describe())
+    st.write('Basic statistics of deaths of people of age between 50 and 69')
+    st.write(dfveryold.describe())
