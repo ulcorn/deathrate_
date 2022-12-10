@@ -79,7 +79,6 @@ pages = {"All statistics": main_page, "Analysis": page2}
 
 selected_page = st.sidebar("Select a page", pages)
 pages[selected_page]()
-selected_page = st.sidebar
 tab1, tab2, tab3, tab4, tab5= st.tabs(['People under age 5', 'People of age between 5 and 14','People of age between 15 and 49', 'People of age between 50 and 69', 'General Statistics' ])
 with tab1:
     st.header('How many people people under age 5 died for different reasons')
