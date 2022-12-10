@@ -1,9 +1,9 @@
 import pandas as pd
+import plotly.express as px
 import streamlit as st
 
 st.markdown('# Analysis')
 
-st.header('Analysis of the statistics')
 
 st.write('Here i would like to analyse the obtained data')
 

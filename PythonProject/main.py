@@ -2,9 +2,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-st.markdown('# Main')
+st.markdown('# Death Rate analysis (1990-2019)')
 
-st.header('Death Rate analysis (1990-2019)')
 
 st.write('This statistics will examine main causes of death of people of different ages')
 
