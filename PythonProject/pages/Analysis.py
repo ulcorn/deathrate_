@@ -76,6 +76,6 @@ st.write('People of age from 5 to 14 that died from self-harm')
 showbar(dfyoung, 'Self-harm', '#EEA6FB')
 st.write('People of age from 15 to 49 that died from self-harm')
 showbar(dfold, 'Self-harm', '#EEA6FB')
-st.write('My hypothesis can be proved by the statistics above, so it is true.')
+st.write('My hypothesis can be clearly proved by the statistics of people from 5 to 14, but the number of people dying from self-harm aged 15 to 49 have remained approx. the same, so my theory is partially true.')
 
 
