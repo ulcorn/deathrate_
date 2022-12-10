@@ -73,9 +73,9 @@ st.write('5-14 age group')
 showbar(dfyoung, reasonwhy1, '#AB63FA')
 st.header('According to my theory, as psychological aid has become more widespread, fewer persons commit suicide by harming themselves because they seek help sooner.')
 st.write('People of age from 5 to 14 that died from self-harm')
-# showbar(dfyoung, 'Self-harm', 'EEA6FB')
+showbar(dfyoung, 'Self-harm', 'EEA6FB')
 st.write('People of age from 15 to 49 that died from self-harm')
-# showbar(dfold, 'Self-harm', 'EEA6FB')
+showbar(dfold, 'Self-harm', 'EEA6FB')
 st.write('My hypothesis can be proved by the statistics above, so it is true.')
 
 
