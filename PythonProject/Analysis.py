@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-st.markdown("#Analysis")
+st.markdown('# Analysis')
 
 st.header('Analysis of the statistics')
 

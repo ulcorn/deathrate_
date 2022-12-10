@@ -2,8 +2,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-st.sidebar.markdown('Main')
-st.markdown("Main")
+st.markdown('# Main')
 
 st.header('Death Rate analysis (1990-2019)')
 
