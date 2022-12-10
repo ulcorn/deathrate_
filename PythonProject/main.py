@@ -4,8 +4,7 @@ import streamlit as st
 
 st.header('Death Rate analysis (1990-2019)')
 
-st.write('не придумала что написать и не придумала куда написать гипотезу и подтверждение или опровержение')
-
+st.write('This statistics will examine main causes of death of people of different ages')
 
 def showbar(dataframe, reasonwhy, color):
     years = []
@@ -67,6 +66,20 @@ dfveryold = dfveryold[dfveryold['Country'].str.contains('World') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Lower Middle Income') == False]
 
+# Сайт
+def main_page():
+    st.markdown('Main page')
+    st.sidebar.markdown('Main page')
+
+def page2():
+    st.markdown('Analysis')
+    st.sidebar.markdown('Analysis')
+
+pages = {"All statistics": main_page, "Analysis": page2}
+
+selected_page = st.sidebar("Select a page", pages)
+pages[selected_page]()
+selected_page = st.sidebar
 tab1, tab2, tab3, tab4, tab5= st.tabs(['People under age 5', 'People of age between 5 and 14','People of age between 15 and 49', 'People of age between 50 and 69', 'General Statistics' ])
 with tab1:
     st.header('How many people people under age 5 died for different reasons')
@@ -97,13 +110,12 @@ with tab4:
     when3 = st.selectbox('Year', sorted(list(dfveryold['Year'].unique())),key="lynal")
     showpie(dfveryold, when3)
 with tab5:
-    st.write('People under age 5')
+    st.write('Basic statistics of deaths of people under age 5')
     st.write(dftodlers.describe())
-    st.write('People of age between 5 and 14')
+    st.write('Basic statistics of deaths of people of age between 5 and 14')
     st.write(dfyoung.describe())
-    st.write('People of age between 15 and 49')
+    st.write('Basic statistics of deaths of people of age between 15 and 49')
     st.write(dfold.describe())
-    st.write('People of age between 50 and 69')
+    st.write('Basic statistics of deaths of people of age between 50 and 69')
     st.write(dfveryold.describe())
-
 
