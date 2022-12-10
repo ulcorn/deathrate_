@@ -2,6 +2,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+st.markdown("#Main")
+
 st.header('Death Rate analysis (1990-2019)')
 
 st.write('This statistics will examine main causes of death of people of different ages')
@@ -22,7 +24,6 @@ def showpie(df, when):
         values.append(df[df['Year'] == when][i].sum())
     fig = px.pie(df, values=values, names= names, labels={'names':'Reason', 'values':'Deaths'})
     st.plotly_chart(fig)
-
 
 dfold = pd.read_csv('PythonProject/age-between-15-and-49.csv')
 dfold = dfold.dropna()
