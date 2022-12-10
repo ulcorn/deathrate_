@@ -7,7 +7,7 @@ st.header('Analysis of the statistics')
 
 st.write('Here i would like to analyse the obtained data')
 
-from main import showbar
+from PythonProject import main
 from main import showpie
 
 dfold = pd.read_csv('PythonProject/age-between-15-and-49.csv')
