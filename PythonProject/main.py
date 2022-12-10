@@ -2,7 +2,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-st.markdown("#Main")
+st.sidebar.markdown('Main')
+st.markdown("Main")
 
 st.header('Death Rate analysis (1990-2019)')
 
@@ -105,3 +106,4 @@ with tab5:
     st.write(dfold.describe())
     st.write('Basic statistics of deaths of people of age between 50 and 69')
     st.write(dfveryold.describe())
+
