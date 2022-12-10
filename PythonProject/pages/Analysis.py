@@ -30,7 +30,6 @@ dfold = dfold.dropna()
 dfold['Year'].astype('object')
 dfold['total_deaths'] = dfold.sum(axis=1, numeric_only=True)
 dfold = dfold.sort_values(by='total_deaths', ascending=False)
-dfold.head()
 dfold = dfold[dfold['Country'].str.contains('World') == False]
 dfold = dfold[dfold['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfold = dfold[dfold['Country'].str.contains('World Bank Lower Middle Income') == False]
@@ -42,7 +41,6 @@ dfyoung = dfyoung.dropna()
 dfyoung['Year'].astype('object')
 dfyoung['total_deaths'] = dfyoung.sum(axis=1, numeric_only=True)
 dfyoung = dfyoung.sort_values(by='total_deaths', ascending=False)
-dfyoung.head()
 dfyoung = dfyoung[dfyoung['Country'].str.contains('World') == False]
 dfyoung = dfyoung[dfyoung['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfyoung = dfyoung[dfyoung['Country'].str.contains('World Bank Lower Middle Income') == False]
@@ -52,7 +50,6 @@ dftodlers = dftodlers.dropna()
 dftodlers['Year'].astype('object')
 dftodlers['total_deaths'] = dftodlers.sum(axis=1, numeric_only=True)
 dftodlers = dftodlers.sort_values(by='total_deaths', ascending=False)
-dftodlers.head()
 dftodlers = dftodlers[dftodlers['Country'].str.contains('World') == False]
 dftodlers = dftodlers[dftodlers['Country'].str.contains('World Bank Upper Middle Income') == False]
 dftodlers = dftodlers[dftodlers['Country'].str.contains('World Bank Lower Middle Income') == False]
@@ -62,17 +59,24 @@ dfveryold = dfveryold.dropna()
 dfveryold['Year'].astype('object')
 dfveryold['total_deaths'] = dfveryold.sum(axis=1, numeric_only=True)
 dfveryold = dfveryold.sort_values(by='total_deaths', ascending=False)
-dfveryold.head()
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Lower Middle Income') == False]
 
 
 st.header('AIDS epidemic')
-reasonwhy = 'HIV/AIDS'
-st.write('There was a AIDS pandemic')
-showbar(dfold, reasonwhy, '#00CC96')
-showbar(dfyoung, reasonwhy, '#AB63FA')
-st.write('Stastistics of death on each year')
-reasonwhy1 = 'Drowning'
+reasonwhy1 = 'HIV/AIDS'
+st.header('In the 2000s, there was a fatal AIDS pandemic, which can be seen in death graphs of people aged 5 to 14 and 15 to 49.')
+st.write('15-49 age group')
+showbar(dfold, reasonwhy1, '#00CC96')
+st.write('5-14 age group')
 showbar(dfyoung, reasonwhy1, '#AB63FA')
+st.header('According to my theory, as psychological aid has become more widespread, fewer persons commit suicide by harming themselves because they seek help sooner.')
+st.write('People of age from 5 to 14 that died from self-harm')
+reasonwhy2 = 'Self-harm'
+showbar(dfyoung, reasonwhy2, 'EEA6FB')
+st.write('People of age from 15 to 49 that died from self-harm')
+showbar(dfold, reasonwhy2, 'EEA6FB')
+st.write('My hypothesis can be proved by the statistics above, so it is true.')
+
+
