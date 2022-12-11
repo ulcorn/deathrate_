@@ -7,6 +7,9 @@ st.markdown('# Death Rate analysis (1990-2019)')
 
 st.write('This statistics will examine main causes of death of people of different ages')
 
+@st.cache
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
 def showbar(dataframe, reasonwhy, color):
     years = []
     deathsforreasons = []
@@ -73,30 +76,51 @@ with tab2:
     st.header('How many people people people of age between 5 and 14 died for different reasons')
     reasonwhy = st.selectbox('Reason', sorted(list(dfyoung)[3:]),key="algosi")
     showbar(dfyoung, reasonwhy, 'plum')
-    st.write('Stastistics of death on each year')
+    st.write('Death statistics each year')
     when1 = st.selectbox('Year', sorted(list(dfyoung['Year'].unique())),key="matan")
     showpie(dfyoung, when1)
 with tab3:
     st.header('How many people people of age between 15 and 49 died for different reasons')
     reasonwhy = st.selectbox('Reason', sorted(list(dfold)[3:]),key="plusi]")
     showbar(dfold, reasonwhy, '#17BECF')
-    st.write('Stastistics of death on each year')
+    st.write('Death statistics each year')
     when2 = st.selectbox('Year', sorted(list(dfold['Year'].unique())),key="diskru")
     showpie(dfold, when2)
 with tab4:
     st.header('How many people people of age between 50 and 69 died for different reasons')
     reasonwhy = st.selectbox('Reason', sorted(list(dfveryold)[3:]),key="vse")
     showbar(dfveryold, reasonwhy, '#00CC96')
-    st.write('Stastistics of death on each year')
+    st.write('Death statistics each year')
     when3 = st.selectbox('Year', sorted(list(dfveryold['Year'].unique())),key="lynal")
     showpie(dfveryold, when3)
 with tab5:
     st.write('Basic statistics of deaths of people under age 5')
-    st.write(dftodlers[3:].describe())
+    st.write(dftodlers.describe())
     st.write('Basic statistics of deaths of people of age between 5 and 14')
-    st.write(dfyoung[3:].describe())
+    st.write(dfyoung.describe())
     st.write('Basic statistics of deaths of people of age between 15 and 49')
-    st.write(dfold[3:].describe())
+    st.write(dfold.describe())
     st.write('Basic statistics of deaths of people of age between 50 and 69')
-    st.write(dfveryold[3:].describe())
+    st.write(dfveryold.describe())
+st.sidebar.download_button(label='Data about deaths of people under age 5',
+    data=convert_df(dftodlers),
+    file_name='under-age-5.csv',
+     mime='text/csv',
+    )
+st.sidebar.download_button(label='Data about deaths of people of age between 5 and 14',
+    data=convert_df(dftodlers),
+    file_name='age-between-5-and-14.csv',
+     mime='text/csv',
+    )
+st.sidebar.download_button(label='Data about deaths of people of age between 15 and 49',
+    data=convert_df(dftodlers),
+    file_name='age-between-15-and-49.csv',
+     mime='text/csv',
+    )
+st.sidebar.download_button(label='Data about deaths of people of age between 50 and 69',
+    data=convert_df(dftodlers),
+    file_name='age-between-50-and-69.csv',
+     mime='text/csv',
+    )
+
 
