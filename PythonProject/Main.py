@@ -107,20 +107,20 @@ st.download_button(label='Data about deaths of people under age 5',
     file_name='under-age-5.csv',
      mime='text/csv',
     )
-st.sidebar.download_button(label='Data about deaths of people of age between 5 and 14',
-    data=convert_df(dfyoung),
-    file_name='age-between-5-and-14.csv',
-     mime='text/csv',
-    )
-st.sidebar.download_button(label='Data about deaths of people of age between 15 and 49',
-    data=convert_df(dfold),
-    file_name='age-between-15-and-49.csv',
-     mime='text/csv',
-    )
-st.sidebar.download_button(label='Data about deaths of people of age between 50 and 69',
-    data=convert_df(dfveryold),
-    file_name='age-between-50-and-69.csv',
-     mime='text/csv',
-    )
+# st.sidebar.download_button(label='Data about deaths of people of age between 5 and 14',
+#     data=convert_df(dfyoung),
+#     file_name='age-between-5-and-14.csv',
+#      mime='text/csv',
+#     )
+# st.sidebar.download_button(label='Data about deaths of people of age between 15 and 49',
+#     data=convert_df(dfold),
+#     file_name='age-between-15-and-49.csv',
+#      mime='text/csv',
+#     )
+# st.sidebar.download_button(label='Data about deaths of people of age between 50 and 69',
+#     data=convert_df(dfveryold),
+#     file_name='age-between-50-and-69.csv',
+#      mime='text/csv',
+#     )
 
 
