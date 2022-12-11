@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 st.markdown('# Analysis')
 
 
-st.write('Here i would like to analyse the obtained data')
+st.subheader('Here i would like to analyse the obtained data')
 def drawplot(df, reason, color):
     fig = go.Figure()
     years = []
