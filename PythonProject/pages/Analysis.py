@@ -7,7 +7,17 @@ st.markdown('# Analysis')
 
 
 st.write('Here i would like to analyse the obtained data')
-
+def drawplot(df, reason, color):
+    fig = go.Figure()
+    years = []
+    deathsforreasons = []
+    for o in range(1990, 2020):
+        deathsforreasons.append(df[df['Year'] == o][reason].sum())
+        years.append(o)
+    fig = fig.add_trace(go.Scatter(x = years,
+                                    y = deathsforreasons,
+                                    line=dict(color=color, width=4)))
+    st.plotly_chart(fig)
 def showbar(dataframe, reasonwhy, color):
     years = []
     deathsforreasons = []
@@ -74,22 +84,8 @@ st.write('5-14 age group')
 showbar(dfyoung, reasonwhy1, '#AB63FA')
 st.header('According to my theory, as psychological aid has become more widespread, fewer persons commit suicide by harming themselves because they seek help sooner.')
 
-def drawplot(df, reason, color):
-    fig = go.Figure()
-    years = []
-    deathsforreasons = []
-    for o in range(1990, 2020):
-        deathsforreasons.append(df[df['Year'] == o][reason].sum())
-        years.append(o)
-    fig = fig.add_trace(go.Scatter(x = years,
-                                    y = deathsforreasons,
-                                    line=dict(color=color, width=4)))
-    st.plotly_chart(fig)
-
-st.write('People of age from 5 to 14 that died from self-harm')
+st.title('People of age from 5 to 14 that died from self-harm')
 drawplot(dfyoung, 'Self-harm', 'pink')
-st.write('People of age from 15 to 49 that died from self-harm')
+st.title('People of age from 15 to 49 that died from self-harm')
 drawplot(dfold, 'Self-harm', 'royalblue')
-st.write('People of age from 50 to 69 that died from self-harm')
-drawplot(dfveryold, 'Self-harm', 'royalblue')
-st.write('There has been a significant difference in fatalities of people aged 15 to 49, with almost 115k people having died from suicides being prevented. Also approx. 6k people aged 5-14 were stopped from killing themselves')
+st.subheader('There has been a significant difference in fatalities of people aged 15 to 49, with almost 115k people having died from suicides being prevented. Also approx. 6k people aged 5-14 were stopped from killing themselves')
