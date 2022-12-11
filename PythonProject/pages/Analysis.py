@@ -1,10 +1,9 @@
-import pandas as pd
 import plotly.express as px
 import streamlit as st
 import plotly.graph_objects as go
 
-
 st.markdown('# Analysis')
+
 
 st.subheader('Here i would like to analyse the obtained data')
 def drawplot(df, reason, color):
