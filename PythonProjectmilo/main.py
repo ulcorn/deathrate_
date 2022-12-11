@@ -60,7 +60,12 @@ dfveryold = dfveryold[dfveryold['Country'].str.contains('World') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Lower Middle Income') == False]
 
-tab1, tab2, tab3, tab4, tab5= st.tabs(['People under age 5', 'People of age between 5 and 14','People of age between 15 and 49', 'People of age between 50 and 69', 'General Statistics' ])
+tab0, tab1, tab2, tab3, tab4, tab5= st.tabs(['Data examples','People under age 5', 'People of age between 5 and 14','People of age between 15 and 49', 'People of age between 50 and 69', 'General Statistics' ])
+with tab0:
+    st.write.dtodlers.head()
+    st.write.dyoung.head()
+    st.write.dfold.head()
+    st.write.dveryoldfold.head()
 with tab1:
     st.header('How many people people under age 5 died for different reasons')
     reasonwhy = st.selectbox('Reason', sorted(list(dftodlers)[3:]),key="orel")
