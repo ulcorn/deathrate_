@@ -90,7 +90,7 @@ for i in dfs:
     fig = fig.add_trace(go.Scatter(x = years,
                                    y = deathsforreasons,
                                    name = i))
-fig.show()
+st.plotly_chart(fig)
 # def showbar(dataframe, reasonwhy, color):
 #     years = []
 #     deathsforreasons = []
