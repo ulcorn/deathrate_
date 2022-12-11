@@ -6,10 +6,6 @@ st.markdown('# Death Rate analysis (1990-2019)')
 
 
 st.write('This statistics will examine main causes of death of people of different ages')
-
-# @st.cache
-# def convert_df(df):
-#     return df.to_csv().encode('utf-8')
 def showbar(dataframe, reasonwhy, color):
     years = []
     deathsforreasons = []
@@ -102,28 +98,5 @@ with tab5:
     st.write(dfold.describe())
     st.write('Basic statistics of deaths of people of age between 50 and 69')
     st.write(dfveryold.describe())
-
-# col1 = st.columns(1)
-# with col1:
-#     st.download_button(label='Data about deaths of people under age 5',
-#         data=convert_df(dftodlers),
-#         file_name='under-age-5.csv',
-#          mime='text/csv',
-#         )
-# st.sidebar.download_button(label='Data about deaths of people of age between 5 and 14',
-#     data=convert_df(dfyoung),
-#     file_name='age-between-5-and-14.csv',
-#      mime='text/csv',
-#     )
-# st.sidebar.download_button(label='Data about deaths of people of age between 15 and 49',
-#     data=convert_df(dfold),
-#     file_name='age-between-15-and-49.csv',
-#      mime='text/csv',
-#     )
-# st.sidebar.download_button(label='Data about deaths of people of age between 50 and 69',
-#     data=convert_df(dfveryold),
-#     file_name='age-between-50-and-69.csv',
-#      mime='text/csv',
-#     )
 
 
