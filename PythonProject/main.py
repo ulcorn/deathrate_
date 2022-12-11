@@ -92,11 +92,11 @@ with tab4:
     showpie(dfveryold, when3)
 with tab5:
     st.write('Basic statistics of deaths of people under age 5')
-    st.write(dftodlers.describe())
+    st.write(dftodlers[3:].describe())
     st.write('Basic statistics of deaths of people of age between 5 and 14')
-    st.write(dfyoung.describe())
+    st.write(dfyoung[3:].describe())
     st.write('Basic statistics of deaths of people of age between 15 and 49')
-    st.write(dfold.describe())
+    st.write(dfold[3:].describe())
     st.write('Basic statistics of deaths of people of age between 50 and 69')
-    st.write(dfveryold.describe())
+    st.write(dfveryold[3:].describe())
 
