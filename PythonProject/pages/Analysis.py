@@ -74,7 +74,6 @@ dfveryold = dfveryold[dfveryold['Country'].str.contains('World') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Lower Middle Income') == False]
 
-
 st.header('AIDS epidemic')
 reasonwhy1 = 'HIV/AIDS'
 st.subheader('In the 2000s, there was a fatal AIDS pandemic, which can be seen in death graphs of people aged 5 to 14 and 15 to 49.')
