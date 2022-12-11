@@ -1,16 +1,13 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+import plotly.graph_objects as go
 
 st.markdown('# Analysis')
 
 
 st.write('Here i would like to analyse the obtained data')
 
-def showline(df):
-    df = px.data.gapminder().query(dfold['Self-harm'])
-    fig = px.line(df, x='year', y=dfold['Self-harm'], color='Age')
-    st.plotly_chart(fig)
 def showbar(dataframe, reasonwhy, color):
     years = []
     deathsforreasons = []
@@ -38,7 +35,6 @@ dfold = dfold.sort_values(by='total_deaths', ascending=False)
 dfold = dfold[dfold['Country'].str.contains('World') == False]
 dfold = dfold[dfold['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfold = dfold[dfold['Country'].str.contains('World Bank Lower Middle Income') == False]
-dfold.head()
 
 
 dfyoung = pd.read_csv('PythonProject/age-between-5-and-14.csv')
@@ -78,7 +74,31 @@ st.write('5-14 age group')
 showbar(dfyoung, reasonwhy1, '#AB63FA')
 st.header('According to my theory, as psychological aid has become more widespread, fewer persons commit suicide by harming themselves because they seek help sooner.')
 st.write('People of age from 5 to 14 that died from self-harm')
-showline(dfold)
+
+# dict for the dataframes and their names
+dfs = {"15-49" : dfold, "5-14": dfyoung}
+
+# plot the data
+fig = go.Figure()
+
+for i in dfs:
+    years = []
+    deathsforreasons = []
+    for o in range(1990, 2020):
+        deathsforreasons.append(dfs[i][dfs[i]['Year'] == o]['Self-harm'].sum())
+        years.append(o)
+    fig = fig.add_trace(go.Scatter(x = years,
+                                   y = deathsforreasons,
+                                   name = i))
+fig.show()
+# def showbar(dataframe, reasonwhy, color):
+#     years = []
+#     deathsforreasons = []
+#     for i in range(1990, 2020):
+#         deathsforreasons.append(dataframe[dataframe['Year'] == i][reasonwhy].sum())
+#         years.append(i)
+#     fig = px.bar(dataframe[reasonwhy], years, deathsforreasons, labels={'x':'Year', 'y':'Deaths'}, color_discrete_sequence = [color]*len(dataframe))
+#     st.plotly_chart(fig)
 # showbar(dfyoung, 'Self-harm', '#EEA6FB')
 # st.write('People of age from 15 to 49 that died from self-harm')
 # showbar(dfold, 'Self-harm', '#EEA6FB')
