@@ -73,10 +73,6 @@ showbar(dfold, reasonwhy1, '#00CC96')
 st.write('5-14 age group')
 showbar(dfyoung, reasonwhy1, '#AB63FA')
 st.header('According to my theory, as psychological aid has become more widespread, fewer persons commit suicide by harming themselves because they seek help sooner.')
-st.write('People of age from 5 to 14 that died from self-harm')
-
-# dict for the dataframes and their names
-dfs = {"15-49" : dfold, "5-14": dfyoung}
 
 def drawplot(df, reason, color):
     fig = go.Figure()
@@ -89,20 +85,9 @@ def drawplot(df, reason, color):
                                     y = deathsforreasons,
                                     line=dict(color=color, width=4)))
     st.plotly_chart(fig)
-drawplot(dfold, 'Self-harm', 'royalblue')
-drawplot(dfyoung, 'Self-harm', 'pink')
-st.write('Since the numbers were lower at the beginning, my idea cannot be supported by figures of children aged 5 to 14, but there has been a noticeable difference in fatalities among persons aged 15 to 49, with almost 100k people having died from suicides being prevented. (')
-# def showbar(dataframe, reasonwhy, color):
-#     years = []
-#     deathsforreasons = []
-#     for i in range(1990, 2020):
-#         deathsforreasons.append(dataframe[dataframe['Year'] == i][reasonwhy].sum())
-#         years.append(i)
-#     fig = px.bar(dataframe[reasonwhy], years, deathsforreasons, labels={'x':'Year', 'y':'Deaths'}, color_discrete_sequence = [color]*len(dataframe))
-#     st.plotly_chart(fig)
-# showbar(dfyoung, 'Self-harm', '#EEA6FB')
-# st.write('People of age from 15 to 49 that died from self-harm')
-# showbar(dfold, 'Self-harm', '#EEA6FB')
-# st.write('My hypothesis can be clearly proved by the statistics of people from 5 to 14, but the number of people dying from self-harm aged 15 to 49 have remained approx. the same, so my theory is partially true.')
-#
 
+st.write('People of age from 5 to 14 that died from self-harm')
+drawplot(dfyoung, 'Self-harm', 'pink')
+st.write('People of age from 15 to 49 that died from self-harm')
+drawplot(dfold, 'Self-harm', 'royalblue')
+st.write('My idea can be supported by figures of children aged 5 to 14, but there has been a significant difference in fatalities among persons aged 15 to 49, with almost 100k people having died from suicides being prevented.')
