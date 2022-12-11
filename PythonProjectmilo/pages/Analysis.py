@@ -78,13 +78,13 @@ dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Lower Middle
 
 st.header('AIDS epidemic')
 reasonwhy1 = 'HIV/AIDS'
-st.subheader('In the 2000s, there was a fatal AIDS epidemic, so I assume that there will be a rise in graphs of deaths due to  HIV/AIDS of people aged 5 to 14 and 15 to 49..')
+st.subheader('In the 2000s, there was a fatal AIDS epidemic, so I assume that there will be a rise in graphs of deaths due to  HIV/AIDS of people aged 5 to 14 and 15 to 49.')
 st.write('15-49 age group')
 showbar(dfold, reasonwhy1, '#00CC96')
 st.write('5-14 age group')
 showbar(dfyoung, reasonwhy1, '#AB63FA')
-st.header('Number of deaths on both graphs rise gradually until they reach their peak at 2005 for 15-49 age group and at 2004 for 5-14 age group. So my theory is proved.')
-
+st.subheader('Number of deaths on both graphs rise gradually until they reach their peak at 2005 for 15-49 age group and at 2004 for 5-14 age group. So my theory is proved.')
+st.header('Self-Harm deaths throughout the years')
 st.subheader('There also can be seen a significant change in self-harm deaths of both 15-49 and 5-14 age groups. It can be possibly explained by the fact that the psychological aid has become more widespread, so fewer persons commit suicide, because they seek help sooner.')
 st.write('People of age from 5 to 14 that died from self-harm')
 drawplot(dfyoung, 'Self-harm', 'pink')
