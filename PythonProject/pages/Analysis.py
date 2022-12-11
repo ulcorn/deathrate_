@@ -78,19 +78,20 @@ st.write('People of age from 5 to 14 that died from self-harm')
 # dict for the dataframes and their names
 dfs = {"15-49" : dfold, "5-14": dfyoung}
 
-# plot the data
-fig = go.Figure()
-
-for i in dfs:
+def drawplot(df, reason):
+    fig = go.Figure()
     years = []
     deathsforreasons = []
     for o in range(1990, 2020):
-        deathsforreasons.append(dfs[i][dfs[i]['Year'] == o]['Self-harm'].sum())
+        deathsforreasons.append(df[df['Year'] == o][reason].sum())
         years.append(o)
     fig = fig.add_trace(go.Scatter(x = years,
-                                   y = deathsforreasons,
-                                   name = i))
-st.plotly_chart(fig)
+                                    y = deathsforreasons,
+                                    line=dict(color='pink', width=4, dash='dot')))
+    st.plotly_chart(fig)
+drawplot(dfold, 'Self-harm')
+drawplot(dfyoung, 'Self-harm')
+st.write('Since the numbers were lower at the beginning, my idea cannot be supported by figures of children aged 5 to 14, but there has been a noticeable difference in fatalities among persons aged 15 to 49, with almost 100k people having died from suicides being prevented. (')
 # def showbar(dataframe, reasonwhy, color):
 #     years = []
 #     deathsforreasons = []
