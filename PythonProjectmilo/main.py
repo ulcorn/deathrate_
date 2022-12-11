@@ -62,10 +62,10 @@ dfveryold = dfveryold[dfveryold['Country'].str.contains('World Bank Lower Middle
 
 tab0, tab1, tab2, tab3, tab4, tab5= st.tabs(['Data examples','People under age 5', 'People of age between 5 and 14','People of age between 15 and 49', 'People of age between 50 and 69', 'General Statistics' ])
 with tab0:
-    st.write.dftodlers.head()
-    st.write.dfyoung.head()
-    st.write.dfold.head()
-    st.write.dveryoldfold.head()
+    st.write(dftodlers.head())
+    st.write(dfyoung.head())
+    st.write(dfold.head())
+    st.write(dfveryold.head())
 with tab1:
     st.header('How many people people under age 5 died for different reasons')
     reasonwhy = st.selectbox('Reason', sorted(list(dftodlers)[3:]),key="orel")
