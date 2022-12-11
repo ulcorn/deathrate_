@@ -6,6 +6,7 @@ st.markdown('# Death Rate analysis (1990-2019)')
 
 
 st.write('This statistics will examine main causes of death of people of different ages')
+
 def showbar(dataframe, reasonwhy, color):
     years = []
     deathsforreasons = []
