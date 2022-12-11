@@ -18,6 +18,8 @@ def drawplot(df, reason, color):
                                     y = deathsforreasons,
                                     line=dict(color=color, width=4)))
     st.plotly_chart(fig)
+
+
 def showbar(dataframe, reasonwhy, color):
     years = []
     deathsforreasons = []
@@ -37,7 +39,7 @@ def showpie(df, when):
 
 
 
-dfold = pd.read_csv('PythonProject/age-between-15-and-49.csv')
+dfold = pd.read_csv('PythonProject/DataFiles/age-between-5-and-14.csv')
 dfold = dfold.dropna()
 dfold['Year'].astype('object')
 dfold['total_deaths'] = dfold.sum(axis=1, numeric_only=True)
@@ -47,7 +49,7 @@ dfold = dfold[dfold['Country'].str.contains('World Bank Upper Middle Income') ==
 dfold = dfold[dfold['Country'].str.contains('World Bank Lower Middle Income') == False]
 
 
-dfyoung = pd.read_csv('PythonProject/age-between-5-and-14.csv')
+dfyoung = pd.read_csv('age-between-5-and-14.csv')
 dfyoung = dfyoung.dropna()
 dfyoung['Year'].astype('object')
 dfyoung['total_deaths'] = dfyoung.sum(axis=1, numeric_only=True)
@@ -56,7 +58,7 @@ dfyoung = dfyoung[dfyoung['Country'].str.contains('World') == False]
 dfyoung = dfyoung[dfyoung['Country'].str.contains('World Bank Upper Middle Income') == False]
 dfyoung = dfyoung[dfyoung['Country'].str.contains('World Bank Lower Middle Income') == False]
 
-dftodlers = pd.read_csv('PythonProject/under-age-5.csv')
+dftodlers = pd.read_csv('under-age-5.csv')
 dftodlers = dftodlers.dropna()
 dftodlers['Year'].astype('object')
 dftodlers['total_deaths'] = dftodlers.sum(axis=1, numeric_only=True)
@@ -65,7 +67,7 @@ dftodlers = dftodlers[dftodlers['Country'].str.contains('World') == False]
 dftodlers = dftodlers[dftodlers['Country'].str.contains('World Bank Upper Middle Income') == False]
 dftodlers = dftodlers[dftodlers['Country'].str.contains('World Bank Lower Middle Income') == False]
 
-dfveryold = pd.read_csv('PythonProject/age-between-50-and-69.csv')
+dfveryold = pd.read_csv('age-between-50-and-69.csv')
 dfveryold = dfveryold.dropna()
 dfveryold['Year'].astype('object')
 dfveryold['total_deaths'] = dfveryold.sum(axis=1, numeric_only=True)
