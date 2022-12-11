@@ -7,9 +7,9 @@ st.markdown('# Death Rate analysis (1990-2019)')
 
 st.write('This statistics will examine main causes of death of people of different ages')
 
-@st.cache
-def convert_df(df):
-    return df.to_csv().encode('utf-8')
+# @st.cache
+# def convert_df(df):
+#     return df.to_csv().encode('utf-8')
 def showbar(dataframe, reasonwhy, color):
     years = []
     deathsforreasons = []
